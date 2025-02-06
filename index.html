@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with FoodHut landing page.">
+    <meta name="author" content="Devcrud">
+    <title>CJT | SERVICIOS MARITIMOS</title>
+   
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/vendors/animate/animate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <!-- Bootstrap + FoodHut main styles -->
+	<link rel="stylesheet" href="assets/css/foodhut.css">
+    <style>
+    section[id]{
+        padding: 180px 15px;
+        text-align: center;
+    } 
+
+    .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+    }
+
+    .header h2{
+        font-family: "Playwrite IN", serif;
+        font-size: 3rem;
+    }
+
+    .header h3 {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+
+    .header h4 {
+        font-family: "Playwrite IN", serif;
+        font-size: 2rem; /* Reduce el tamaño del texto, ajusta según sea necesario */
+        line-height: 1.4;
+    }
+
+    .header h1{
+        font-size: 3rem; /* Aumenta el tamaño del título */
+        font-weight: bold;
+    }
+
+    .eco-friendly {
+        background-color: transparent;
+        margin: 0;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: #ffffff;
+    }
+
+    .eco-friendly .eco-content {
+        flex: 1;
+        max-width: 50%;
+        text-align: left;
+        font-size: 1.5rem;
+        margin-left: 30px;
+    }
+
+    .eco-friendly h2 {
+        font-size: 2.5rem;
+        margin-bottom: 5px;
+    }
+
+    .eco-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .eco-list li {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .eco-list li img {
+        width: 40px;
+        height: auto;
+        margin-right: 15px;
+    }
+
+    .eco-friendly .eco-gif {
+        max-width: 45%;
+        margin-left: auto;
+    }
+
+    .eco-friendly .eco-gif img {
+        width: 70%;
+        height: auto;
+    }
+
+    .eco-gif {
+    max-width: 30%; /* Permite cambiar el tamaño máximo */
+    margin-left: 20px; /* Desplaza el GIF hacia la derecha */
+    margin-right: auto; /* Opción de alineación automática */
+    position: relative; /* Para moverlo con "left" o "right" */
+}
+
+    .eco-gif img {
+        width: 50%; /* El GIF ocupa todo el contenedor */
+        height: auto;
+        object-fit: contain; /* Evita deformación del GIF */
+    }
+
+
+    body {
+        background-color: #011527;
+            color: #ffffff;
+            font-family: "Armata", sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .about {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 15px;
+        background-image: url('assets/imgs/about.jpg'); /* Reemplázalo con tu imagen */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    }
+
+    .bubble {
+    position: absolute;
+    background-image: url('assets/imgs/anchor.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    will-change: transform, opacity;
+    transition: transform 0.3s ease-in-out;
+    }
+    
+    .header {
+      position: relative;
+      height: 100vh;
+    }
+
+    .texto-inferior {
+    position: absolute;
+    right: 20px;
+    bottom: -300px; /* Márgenes negativos para bajar más allá del contenedor */
+    max-width: 950px;
+    text-align: right;
+    }
+
+    .servicios-titulo {
+    margin-top: -100px; /* Ajusta el valor negativo para subirlo más */
+    }
+
+    #contact {
+    padding-top: 0; /* Sin padding que afecte el scroll */
+    scroll-margin-top: 100px; /* Ajusta el margen superior al hacer clic en el botón */
+    }
+
+    .about .image-container {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    }
+
+    .about p {
+        text-align: left;
+        font-size: 1.3rem; /* Aumenta el tamaño del texto */
+        line-height: 1.8; /* Mejora la legibilidad */
+    }
+
+    .about .text-container {
+        width: 120%;  /* 📌 Hace que el texto sea más ancho que su contenedor */
+        max-width: none; /* 📌 Quita restricciones de ancho máximo */
+        margin-left: -10%; /* 📌 Desplaza el texto hacia los lados */
+        margin-right: -10%; /* 📌 Ajusta el margen para centrarlo mejor */
+        text-align: left; /* 📌 Mantiene el texto alineado a la izquierda */
+    }
+
+    .has-img-bg {
+        background-image: url('assets/imgs/about-section.jpg'); 
+        background-size: cover;
+        background-position: center right;
+        background-repeat: no-repeat;
+        min-height: 400px;
+        width: 100%; /* Asegura que ocupa todo el ancho */
+    }
+    
+    .empresa-texto {
+    width: 90%; /* Aumenta el ancho */
+    max-width: 700px; /* Evita que se haga demasiado grande en pantallas grandes */
+    margin: 0 auto; /* Centra el texto */
+    text-align: justify; /* Justifica el texto */
+    }
+
+    @media (max-width: 768px) {
+        .has-img-bg {
+            min-height: 200px;  /* Ajustamos la altura en móviles */
+            background-size: cover; /* Evita deformaciones */
+            background-position: 50% center; /* 📌 Mueve la imagen a la derecha SIN cortarla */
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        .about {
+            width: 90%; /* Que sea más angosta en móviles */
+            min-height: 200px; /* Ajuste de altura */
+        }
+
+        .about .image-container {
+        max-width: -50%;
+        height: auto;
+        }
+
+        .about p {
+        text-align: justify;
+        }
+
+        .about .text-container {
+            width: 140%; /* 📌 Más ancho en pantallas grandes */
+            margin-left: -20%;
+            margin-right: -20%;
+        }
+    }
+
+    #services, #find-us {
+            background: transparent !important;
+    }
+        
+    .navbar-nav .nav-link, 
+    .navbar-brand .brand-txt {
+        font-family: "Armata", serif;
+        font-weight: 700; /* Puedes cambiarlo a 400 para un estilo más ligero */
+    }
+
+    .navbar, .footer, .header, .bg-dark {
+        background-color: #011527 !important;
+        transition: background-color 0.2s ease; /* Transición rápida para fondo */
+    }
+
+    /* Estilo para la navbar en su estado inicial (transparente) */
+    .custom-navbar {
+        background-color: transparent !important;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Estilo cuando la navbar tiene scroll */
+    .custom-navbar.scrolled {
+        background-color: #011527 !important; /* Color original cuando hace scroll */
+    }
+
+
+    .text-light, .overlay, .custom-navbar .nav-link, .section-title, .card-body p {
+            color: #ffffff !important;
+            transition: color 0.2s ease; /* Transición rápida para el color */
+    }
+
+    .btn-primary {
+            background-color: #011527 !important;
+            border: 1px solid #FFF;
+            color: #FFF;
+            transition: all 0.2s ease;
+    }
+
+    .btn-primary, .badge-primary {
+        background-color: #011527 !important;
+        border-color: #FFF !important;
+        color: #FFF !important; /* Color inicial de la letra */
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Animación añadida */
+    }
+
+    .btn-primary:hover, .badge-primary:hover {
+        background-color: #fff !important; /* Fondo más claro al pasar el mouse */
+        border-color: #011527 !important;
+        color: #011527 !important; /* Cambia el color de la letra */
+        transform: scale(1.05); /* Efecto de ampliación */
+        box-shadow: 0px 4px 10px rgba(0, 121, 176, 0.5); /* Sombra suave */
+
+    }
+
+
+        /* Efecto inicial para los enlaces */
+    .nav-pills .nav-link {
+        background-color: #004173;
+        color: #ffffff;
+        transition: transform 0.3s ease, background-color 0.3s ease; /* Suaviza el cambio */
+    }
+
+    /* Efecto hover (cuando se coloca el mouse encima) */
+    .nav-pills .nav-link:hover {
+        background-color: #0979b0; /* Cambia ligeramente el tono */
+        transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+        color: #ffffff; /* Asegura contraste */
+    }
+
+    /* Asegura que el activo también responda al hover */
+    .nav-pills .nav-link.active:hover {
+        background-color: #005f99; /* Otro tono */
+        transform: scale(1.1); /* Mantén el efecto de tamaño */
+    }
+
+    .brand-img {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #contact {
+        padding-top: 50px;  /* Ajusta el espacio superior */
+        padding-bottom: 50px; /* Ajusta el espacio inferior */
+    }
+
+    /* Asegura que haya separación entre los elementos */
+    #contact .col-md-6 {
+        margin-bottom: 30px; /* Espaciado inferior */
+    }
+
+    /* Centrar los últimos tres elementos en el footer */
+    .footer-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-info div {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+    }
+
+    .footer-info .col-sm-4 {
+        flex: 1;
+        text-align: center !important;
+    }
+
+    @media (max-width: 768px) {
+        .empresa-texto {
+            width: 100%; /* Abarca más en móviles */
+            font-size: 1.1em; /* Aumenta ligeramente el tamaño de fuente */
+            line-height: 1.6; /* Mejora la legibilidad */
+        }
+    }
+
+    .empresa-container {
+        display: flex;
+        flex-direction: column; /* Asegura que los elementos sean apilados */
+        align-items: stretch; /* Hace que ocupen todo el ancho */
+        width: 100%;
+    }
+    
+    </style>
+    
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <!-- Navbar -->
+    <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Nosotros</a>
+                </li>              
+               
+            </ul>
+            <a class="navbar-brand m-auto" href="#">
+                <span class="brand-txt">CJT - SERVICIOS MARÍTIMOS</span>                
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#blog">Servicios<span class="sr-only">(current)</span></a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="bubble-container"></div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function createAnchors() {
+        const container = document.querySelector('.bubble-container');
+        const anchorCount = 10; // Menor número de anclas
+
+        // Crear una ancla flotante
+        function addAnchor() {
+            const anchor = document.createElement('div');
+            anchor.classList.add('bubble');
+
+            // Tamaño aleatorio entre 50px y 90px
+            const size = Math.random() * 40 + 50;
+            anchor.style.width = `${size}px`;
+            anchor.style.height = `${size}px`;
+
+            // Posición horizontal aleatoria
+            anchor.style.left = `${Math.random() * 100}%`;
+            anchor.style.top = `-10vh`;
+
+            // Profundidad simulada (opacidad y z-index)
+            const opacity = Math.random() * 0.4 + 0.6;
+            anchor.style.opacity = opacity;
+            anchor.style.zIndex = `${Math.floor(opacity * 10)}`;
+
+            container.appendChild(anchor);
+
+            animateAnchor(anchor, size);
+        }
+
+        // Animación del ancla desde el top al bottom
+        function animateAnchor(anchor, size) {
+            let position = -10;
+            const speed = (160 - size) / 120;
+
+            function move() {
+            position += speed;
+            anchor.style.top = `${position}vh`;
+
+            if (position > 100) {
+                position = -10;
+                anchor.style.left = `${Math.random() * 100}%`; // Nueva posición horizontal
+            }
+
+            requestAnimationFrame(move);
+            }
+
+            move();
+        }
+
+        // Crear anclas con aparición escalonada
+        for (let i = 0; i < anchorCount; i++) {
+            setTimeout(addAnchor, i * 500); // Intervalo de 500ms para dispersión de anclas
+        }
+        }
+
+        createAnchors();
+        });
+
+
+        
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function createFloatingObjects() {
+            const container = document.querySelector('.bubble-container');
+            const objectCount = 4;  // Equilibrio entre anclas y timones
+    
+            const images = [
+                'assets/imgs/anchor.png', // Ancla
+                'assets/imgs/timon.png'   // Timón
+            ];
+    
+            function generateUniqueLeftPosition() {
+                return Math.random() * 100 + 20; // Mantiene separación adecuada
+            }
+    
+            function addFloatingObject(index) {
+                const floatingObject = document.createElement('div');
+                floatingObject.classList.add('bubble');
+    
+                // Alternar entre ancla y timón equitativamente
+                const imageUrl = images[index % 2]; 
+                floatingObject.style.backgroundImage = `url('${imageUrl}')`;
+    
+                // Tamaño aleatorio entre 50px y 100px
+                const size = Math.random() * 50 + 50;
+                floatingObject.style.width = `${size}px`;
+                floatingObject.style.height = `${size}px`;
+    
+                // Posición horizontal aleatoria
+                floatingObject.style.left = `${generateUniqueLeftPosition()}%`;
+                floatingObject.style.top = `-10vh`;
+    
+                // Opacidad aleatoria entre 60% y 100%
+                const opacity = Math.random() * 0.4 + 0.6;
+                floatingObject.style.opacity = opacity;
+                floatingObject.style.zIndex = `${Math.floor(opacity * 10)}`;
+    
+                container.appendChild(floatingObject);
+    
+                animateFloatingObject(floatingObject, size);
+            }
+    
+            function animateFloatingObject(floatingObject, size) {
+                let position = -10;
+                const speed = (150 - size) / 110; // Velocidad equilibrada
+    
+                function move() {
+                    position += speed;
+                    floatingObject.style.top = `${position}vh`;
+    
+                    if (position > 100) {
+                        floatingObject.remove(); // Elimina el objeto al llegar al final
+                        addFloatingObject(Math.floor(Math.random() * 2)); // Genera uno nuevo arriba
+                        return;
+                    }
+    
+                    requestAnimationFrame(move);
+                }
+    
+                move();
+            }
+    
+            // Crear los objetos inicialmente
+            for (let i = 0; i < objectCount; i++) {
+                setTimeout(() => addFloatingObject(i), i * 1200); // De 700ms a 1200ms
+            }
+        }
+    
+        createFloatingObjects();
+    });
+    </script>
+    
+    
+    
+   
+    <!-- header -->
+    <section class="home">
+        <header id="home" class="header">
+            <!-- Texto en la parte inferior derecha del header -->
+            <div class="overlay text-white texto-inferior">
+                <h3 class="display-4 mb-5">"Limpieza eficiente de yates y contenedores, para un
+                    mar más saludable"</h3>
+            </div>
+    
+            <!-- Logo en la parte superior izquierda solo en el inicio -->
+            <div style="position: absolute; top: 130px; left: 20px;">
+                <a href="index.html">
+                    <img src="assets/imgs/logo.png" alt="Logo CJT" style="width: 400px; height: auto;">
+                </a>
+            </div>
+        </header>
+    </section>
+    <br>
+    <br>
+
+    <!--  About Section  -->
+    <section class="about" id="about">
+    <div>
+        <div class="container-fluid wow fadeIn" data-wow-duration="1.5s">
+            <div class="row align-items-center">
+                    <div class="col-lg-5 has-img-bg"></div> <!-- Imagen -->
+                    <div class="col-lg-7 px-8"> <!-- Texto ocupa más espacio -->
+                            <h1 class="mb-4">Nuestra Empresa</h1>
+                            <p>CJT Servicios Marítimos es una empresa que ofrece una máxima calidad y profesionalismo en la limpieza de todo tipo de embarcaciones y contenedores, por ello nuestra visión es ser considerados como una de las empresas de limpieza y mantenimiento, punteras en el ámbito de innovación a través del desarrollo de nuevos protocolos y técnicas avanzadas, ecológicas y eficaces. <br><br>
+                            <p><b>Contamos con un completo programa de servicio de limpieza</b></p>
+                            <p>Para ello, te ofrecemos una extensa gama  de servicios de limpieza de embarcaciones y contenedores, gama de productos biodegradables y respetando el medio ambiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+<br><br><br>
+    <div class="bg-dark text-light text-center border-top wow fadeIn"></div>
+
+<!-- BLOG Section  -->
+<section class="blog" id="blog">
+    <div id="blog">
+    <h2 class="section-title py-5 text-center servicios-titulo">Servicios</h2>
+        <div class="row justify-content-center">
+            <div class="col-sm-7 col-md-4 mb-5">
+                <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#Ofrecemos" role="tab" aria-controls="pills-home" aria-selected="true">Ofrecemos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#Objetivos" role="tab" aria-controls="pills-profile" aria-selected="false">Objetivos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#Responsable" role="tab" aria-controls="pills-profile" aria-selected="false">Responsable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#Proceso" role="tab" aria-controls="pills-profile" aria-selected="false">Procesos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="Ofrecemos" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row justify-content-center">
+                    <!-- Servicio 1 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/blog-1.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 650px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Mantenimiento Especializado</h4>
+                                <p class="text-white">Nuestro personal capacitado se especializa en el cuidado y mantenimiento de yates, embarcaciones y contenedores. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 2 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/blog-2.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 650px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Limpieza</h4>
+                                <p class="text-white">Servicios de limpieza y mantenimiento ajustado a las necesidades de cada cliente. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 3 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/blog-3.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 650px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Protección</h4>
+                                <p class="text-white">Protección exterior e interior durante operaciones o mantenimiento a bordo, con especial atención al reciclaje de materiales. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 4 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/blog-4.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 650px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Productos</h4>
+                                <p class="text-white">Ofrecemos una amplia gama de productos de limpieza que cumplen con los acuerdos Marpol para la prevención de la contaminación en mares y océanos </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Objetivos" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row justify-content-center">
+                    <!-- Servicio 1 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/obj1.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 500px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Ofrecer servicio de limpieza de alta calidad</h4>
+                                <p class="text-white">Proporcionar servicio de limpieza eficiente y efectivo para yates y contenedores.</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Servicio 2 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/obj2.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 500px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Satisfacer las necesidades de los clientes</h4>
+                                <p class="text-white">Atender las necesidades específicas de cada cliente, ya sea en términos de limpieza o mantenimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 3 -->
+                    <div class="col-md-6 mb-4">
+                       <div class="card bg-transparent border">
+                           <img src="assets/imgs/obj3.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 500px; object-fit: cover;">
+                           <div class="card-body text-center">
+                           <h4 class="pt-2 pb-2">Establecer una reputación de confianza y profesionalismo</h4>
+                           <p class="text-white">Construir una reputación solida en el mercado, basada en la calidad de los servicios y atención al cliente, al cumplir con las normas y regularizaciones aplicables, manteniendo nuestras certificaciones y autorizaciones necesarias para operar en el sector.</p>
+                           </div>
+                       </div>
+                    </div> 
+                   <!-- Servicio 4 -->
+                   <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                           <img src="assets/imgs/obj4.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 500px; object-fit: cover;">
+                            <div class="card-body text-center">
+                            <h4 class="pt-2 pb-2">Reducir la contaminación marítima</h4>
+                            <p class="text-white">Minimizar el impacto ambiental de la limpieza de yates y contenedores, utilizando productos y técnicas ecológicas. </p>
+                         </div>
+                         </div>
+                      </div>
+                    <!-- Servicio 5 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/obj5.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 500px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Incrementar la eficiencia y productividad</h4>
+                                <p class="text-white">Implementar procesos y tecnologías que permitan reducir tiempos y costos, mejorando la eficiencia y productividad.</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Servicio 6 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/obj6.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 500px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Adaptarnos a tus necesidades</h4>
+                                <p class="text-white">Para ello es importante que sepamos algunos detalles que nos ayudaran a personalizar el servicio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Responsable" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row justify-content-center">
+                    <!-- Servicio 1 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/res.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 600px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <p class="text-white">El personal es profesional y capacitado para la actividad solicitada en las instalaciones, cuentan con seguro SCTR.</p>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Proceso" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row justify-content-center d-flex flex-wrap">
+                    <!-- Servicio 1 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro1.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Limpieza y mantenimiento de teca</h4>
+                                <p class="text-white">A petición del cliente, ya sea de forma puntual o periódica, CJT Servicios Marítimos realiza la limpieza parcial o total de la embarcación</p>
+                            </div>
+                        </div>
+                    </div>             
+                    <!-- Servicio 2 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro2.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Limpieza y mantenimiento de la fibra de vidrio del casco</h4>
+                                <p class="text-white">Con el tiempo el Gelcoat amarillea y pierde su color. Con el blanqueador de cascos y cubiertas recuperamos su blancura y aspecto inicial ya sea en cubiertas, o cascos, líneas de flotación, espejo de popa, etc.</p>
+                            </div>
+                        </div>
+                    </div>             
+                    <!-- Servicio 3 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro3.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Desoxidación y protección de metales</h4>
+                                <p class="text-white">Protegemos los metales de su embarcación</p>
+                            </div>
+                        </div>
+                    </div>             
+                    <!-- Servicio 4 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro4.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Lavado de cortinas y ropa de cama de los yates</h4>
+                                <p class="text-white">Es importante la limpieza periódica para preservar su higiene y durabilidad. Disponemos de un lavado protegiendo siempre la tela</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 5 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro5.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Desinfección de contenedores</h4>
+                                <p class="text-white">Determinar los procedimientos necesarios para una correcta ejecución de la limpieza de los contenedores, contando con el personal capacitado, para la correcta ejecución de lavado de contenedores.</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Servicio 6 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro6.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Limpieza de contenedores</h4>
+                                <p class="text-white">El personal efectuara el trabajo de limpieza y desinfección de cada contenedor con las herramientas e insumos necesarios que serán entregados el mismo día de ejecución de la limpieza y desinfección.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 7 -->
+                  <div class="col-md-6 mb-4">
+                       <div class="card bg-transparent border">
+                        <img src="assets/imgs/pro7.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                        <h4 class="pt-2 pb-2">Tratamientos de teca</h4>
+                        <p class="text-white">La teca es una madera noble que requiere cuidados adecuados. nos especializamos en su limpieza, aplicando los mejores productos existentes para su cuidado.</p>
+                       </div>
+                      </div>
+                  </div>
+                    <!-- Servicio 8 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card bg-transparent border">
+                            <img src="assets/imgs/pro8.jpg" class="rounded-0 card-img-top mg-responsive" style="height: 400px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h4 class="pt-2 pb-2">Limpieza y descalcificación de cristales</h4>
+                                <p class="text-white">La cal y la sal se adhieren a las superficies. Su eliminación es más difícil cuanto más tiempo pasa. Le realizamos una profunda limpieza de cristales y metacrilatos para su descalcificación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!--ECO-FRIENDLY-->
+<div class="bg-dark text-light text-center border-top wow fadeIn"></div>
+    <section class="eco-friendly" id="eco-friendly">
+        <div class="eco-content">
+            <h2>Somos Ecológicos</h2>
+            <p>Estas son las formas en las que cuidamos de nuestro entorno, busca estos iconos en nuestros productos para conocer sus propiedades ecológicas:</p>
+            <ul class="eco-list">
+            <li><i class="fas fa-tint"></i>ㅤ Bajo nivel de espuma para ahorrar agua</li>
+            <li><i class="fas fa-leaf"></i>ㅤ Sin químicos agresivos para cuidar tu piel y los materiales</li>
+            <li><i class="fas fa-bolt"></i>ㅤ Alta eficiencia</li>
+            <li><i class="fas fa-seedling"></i> ㅤContiene bio alcohol extraído de la cáscara de almendras y ㅤㅤavellanas</li>
+            <li><i class="fas fa-bacteria"></i> ㅤCepas de bacterias naturales seleccionadas</li>
+        </ul>
+    </div>
+    <div class="eco-gif">
+        <img src="assets/imgs/eco.gif" alt="Eco Animation">
+    </div>
+</section>
+ 
+    <!-- CONTACT Section  -->
+<br>
+<br>
+<div class="bg-dark text-light text-center border-top wow fadeIn"></div>
+<br>
+<br>
+<br>
+    <div id="contact">
+        <div class="row g-4">
+            <div class="col-md-6 px-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d344.86284161270686!2d-77.15262016788756!3d-12.065685114693663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cb745e9ff2b1%3A0xce3a0d85ab4c9780!2sC.%20Titicaca%20425%2C%20Callao%2007021!5e0!3m2!1ses-419!2spe!4v1738728320060!5m2!1ses-419!2spe" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-6 px-5 has-height-lg middle-items">
+                <h3>ENCUENTRANOS EN:</h3>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p> -->
+                <div class="text-muted">
+                    <p><span class="ti-location-pin pr-3"></span> Residencial Chucuito Titicaca 425 Callao</p>
+                    <p><span class="ti-support pr-3"></span> +51 908 889 941 /+51 943 414 638</p>
+                    <p><span class="ti-email pr-3"></span> cjt.serviciosmaritimos@gmail.com</p>
+                    <p>
+                        <a href="https://www.instagram.com/cjtserviciosmaritimos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="text-decoration: none; color: inherit;">
+                          <span class="fab fa-instagram pr-3"></span> @cjtserviciosmaritimos
+                        </a>
+                      </p>
+                    <form action="https://formspree.io/f/xgvvqwqv" method="POST" class="mt-4">
+                        <div class="form-group">
+                            <label for="email" class="text-light">Correo:</label>
+                            <input type="email" name="email" class="form-control" placeholder="Ingrese su correo" required style="background-color: #1e2a38; border-color: #fff; color: #fff;">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="text-light">Mensaje:</label>
+                            <textarea name="message" class="form-control" rows="4" placeholder="Escribe su mensaje" required style="background-color: #1e2a38; border-color: #fff; color: #fff;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- <div class="bg-dark text-light text-center border-top wow fadeIn"></div>
+    <br> -->
+    <!-- page footer  -->
+    <div>
+        <div class="footer-info container">
+          <div class="col-sm-4 text-left">
+            <h4><b>YATES</b></h4>
+            <img src="assets/imgs/ico-1.png" alt="Icono Correo" width="100">
+          </div>
+          <div class="col-sm-4 text-center">
+            <h4><b>CATAMARÁN</b></h4>
+            <img src="assets/imgs/ico-2.png" alt="Icono Teléfono" width="100">
+          </div>
+          <div class="col-sm-4 text-center">
+            <h4><b>YATES VELAS</b></h4>
+            <img src="assets/imgs/ico-3.png" alt="Icono Dirección" width="100">
+          </div>
+          <div class="col-sm-4 text-right">
+            <h4><b>CONTENEDORES</b></h4>
+            <img src="assets/imgs/ico-4.png" alt="Icono Dirección" width="100">
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+    </div>
+    <div class="bg-dark text-light text-center border-top wow fadeIn">
+        <p class="mb-0 py-3 text-muted small">&copy; Copyright <script>document.write(new Date().getFullYear())</script> desing for <b>HXDI</a></p>
+    </div>
+    <!-- end of page footer -->
+
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- wow.js -->
+    <script src="assets/vendors/wow/wow.js"></script>
+    
+    <!-- google maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+
+    <!-- FoodHut js -->
+    <script src="assets/js/foodhut.js"></script>
+    <script>
+        // Detecta el desplazamiento de la página
+        window.onscroll = function() {
+            var navbar = document.querySelector('.custom-navbar');
+            if (window.pageYOffset > 10) {
+                navbar.classList.add('scrolled'); // Añade la clase 'scrolled' cuando el usuario hace scroll
+            } else {
+                navbar.classList.remove('scrolled'); // Elimina la clase 'scrolled' cuando está en la parte superior
+            }
+        };
+    </script>
+    
+
+</body>
+</html>
